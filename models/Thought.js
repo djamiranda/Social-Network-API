@@ -1,5 +1,8 @@
+// Import required modules from mongoose
 const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
+
+// Create a schema for reactions
 const reactionSchema = new Schema(
     {
         reactionId: {
@@ -22,16 +25,17 @@ const reactionSchema = new Schema(
     },
     {
         toJSON: {
-            getters: true,
+            getters: true, // Include getters when converting to JSON
         },
-        id: false,
+        id: false, // Exclude id field from the document
     }
 );
+
+// Create a schema for thoughts
 const thoughtSchema = new Schema(
     {
         thoughtText: {
             type: String,
-            required: true,
             required: true,
             minLength: 1,
             maxLength: 280,
@@ -44,21 +48,24 @@ const thoughtSchema = new Schema(
             type: String,
             required: true,
         },
-        reactions: [reactionSchema],
+        reactions: [reactionSchema], // Embed reaction documents
     },
     {
         toJSON: {
-            virtuals: true,
-            getters: true,
+            virtuals: true, // Include virtuals when converting to JSON
+            getters: true, // Include getters when converting to JSON
         },
-        id: false,
+        id: false, // Exclude id field from the document
     }
 );
 
+// Define a virtual property 'reactionCount' for thoughtSchema
 thoughtSchema.virtual('reactionCount').get(function () {
     return this.reactions.length;
 });
 
+// Create a Thought model based on the thoughtSchema
 const Thought = model('Thought', thoughtSchema);
 
+// Export the Thought model
 module.exports = Thought;
