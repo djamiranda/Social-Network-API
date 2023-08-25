@@ -13,7 +13,7 @@ module.exports = {
                 !thought
                     ? res
                           .status(404)
-                          .json({ message: 'No Thought with that ID' })
+                          .json({ message: 'No Thought 💭 with that ID 🆔' })
                     : res.json(thought)
             )
             .catch((err) => res.status(500).json(err));
@@ -31,7 +31,7 @@ module.exports = {
                 !thought
                     ? res
                           .status(404)
-                          .json({ message: 'No User find with this ID!' })
+                          .json({ message: 'No User 👤 found with that ID 🆔' })
                     : res.json(thought)
             )
             .catch((err) => {
@@ -49,7 +49,7 @@ module.exports = {
                 !user
                     ? res
                           .status(404)
-                          .json({ message: 'No Thought with this id!' })
+                          .json({ message: 'No Thought 💭 with that ID 🆔' })
                     : res.json(user)
             )
             .catch((err) => res.status(500).json(err));
@@ -60,8 +60,8 @@ module.exports = {
                 !thought
                     ? res
                           .status(404)
-                          .json({ message: 'No Thought with that ID' })
-                    : res.json({ message: 'Thought successfully deleted!' })
+                          .json({ message: 'No Thought 💭 with that ID 🆔' })
+                    : res.json({ message: 'Thought 💭 deleted 🗑️!' })
             )
             .catch((err) => res.status(500).json(err));
     },
@@ -76,7 +76,7 @@ module.exports = {
                 !thought
                     ? res
                           .status(404)
-                          .json({ message: 'No thought frind with ID!' })
+                          .json({ message: 'No Thought 💭 with that ID 🆔' })
                     : res.json(thought)
             )
             .catch((err) => res.status(500).json(err));
@@ -91,7 +91,7 @@ module.exports = {
                 !thought
                     ? res
                           .status(404)
-                          .json({ message: 'No thought find with this ID!' })
+                          .json({ message: 'No Thought 💭 with that ID 🆔' })
                     : res.json(thought)
             )
             .catch((err) => res.status(500).json(err));

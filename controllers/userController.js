@@ -16,7 +16,7 @@ module.exports = {
             .select('-__v')
             .then(async (User) =>
                 !User
-                    ? res.status(404).json({ message: 'No User with that ID' })
+                    ? res.status(404).json({ message: 'No User 👤 with that ID 🆔' })
                     : res.json(User)
             )
             .catch((err) => {
@@ -40,7 +40,7 @@ module.exports = {
                 !user
                     ? res
                           .status(404)
-                          .json({ message: 'No User find with this ID!' })
+                          .json({ message: 'No User 👤 found with that ID 🆔' })
                     : res.json(user)
             )
             .catch((err) => res.status(500).json(err));
@@ -49,18 +49,18 @@ module.exports = {
         User.findOneAndDelete({ _id: req.params.userId })
             .then((response) =>
                 !response
-                    ? res.status(404).json({ message: 'No such User exists' })
+                    ? res.status(404).json({ message: 'User 👤 doesnt exist' })
                     : Thought.deleteMany({
                           username: response.username,
                       }).then((thoughts) =>
                           !thoughts
                               ? res.status(404).json({
                                     message:
-                                        'User deleted, but no thoughts found',
+                                        'User 👤 deleted 🗑️, no Thoughts 💭 found',
                                 })
                               : res.json({
                                     message:
-                                        'User and thoughts successfully deleted',
+                                        'User 👤 & Thoughts 💭 deleted 🗑️',
                                 })
                       )
             )
@@ -77,7 +77,7 @@ module.exports = {
                 !User
                     ? res
                           .status(404)
-                          .json({ message: 'No User found with that ID :(' })
+                          .json({ message: 'No User 👤 found with that ID 🆔' })
                     : res.json(User)
             )
             .catch((err) => res.status(500).json(err));
@@ -92,7 +92,7 @@ module.exports = {
                 !User
                     ? res
                           .status(404)
-                          .json({ message: 'No User found with that ID :(' })
+                          .json({ message: 'No User 👤 found with that ID 🆔' })
                     : res.json(User)
             )
             .catch((err) => res.status(500).json(err));
