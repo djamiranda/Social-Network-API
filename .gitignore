@@ -1,7 +1,5 @@
 node_modules
 .env
-DS_Store
-criteria.md
+.DS_Store
 .eslintrc.json
 .eslintignore
-.env
